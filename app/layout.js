@@ -20,6 +20,17 @@ export const metadata = {
     default: "CEIT - Central Innovative Technologies",
     template: "%s | CEIT",
   },
+  icons: {
+    icon: [
+      {
+        url: "/labslogo.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+    ],
+    shortcut: ["/labslogo.png"],
+    apple: ["/labslogo.png"],
+  },
   description:
     "Central Innovative Technologies explores problems across industries and builds software solutions that ship fast and scale.",
   keywords: [

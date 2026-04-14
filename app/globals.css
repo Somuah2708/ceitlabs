@@ -31,6 +31,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -219,6 +220,11 @@ nav {
   align-items: center;
 }
 
+.hero-actions .btn-primary,
+.hero-actions .btn-ghost {
+  min-height: 44px;
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -301,6 +307,10 @@ nav {
   padding-top: 2.5rem;
 }
 
+.stat-item {
+  min-width: 140px;
+}
+
 .stat-num {
   font-family: var(--font-head);
   font-size: 2.2rem;
@@ -353,6 +363,11 @@ section {
   max-width: 520px;
   font-weight: 300;
   line-height: 1.75;
+}
+
+.cta-section .section-sub,
+.industries-header .section-sub {
+  max-width: 640px;
 }
 
 .marquee-section {
@@ -418,21 +433,23 @@ section {
   cursor: default;
 }
 
-.service-card:hover {
-  background: var(--bg3);
+.service-card p {
+  max-width: 420px;
 }
 
-.service-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  background: rgba(0, 200, 160, 0.08);
-  border: 1px solid rgba(0, 200, 160, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  font-size: 1.3rem;
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent 70%);
+  opacity: 0.6;
+}
+
+.service-card:hover {
+  background: var(--bg3);
 }
 
 .service-card h3 {
@@ -488,6 +505,17 @@ section {
   transition: opacity 0.3s;
 }
 
+.industry-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
 .industry-card:hover {
   border-color: rgba(0, 200, 160, 0.4);
   transform: translateY(-3px);
@@ -495,11 +523,6 @@ section {
 
 .industry-card:hover::before {
   opacity: 1;
-}
-
-.industry-icon {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
 }
 
 .industry-card h4 {
@@ -651,20 +674,20 @@ section {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
+  position: relative;
+  padding-left: 1rem;
 }
 
-.why-point-icon {
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-  border-radius: 6px;
-  background: rgba(0, 200, 160, 0.08);
-  border: 1px solid rgba(0, 200, 160, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.95rem;
-  margin-top: 2px;
+.why-point::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 4px;
+  height: 1.25rem;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0.7;
 }
 
 .why-point h4 {
@@ -691,6 +714,10 @@ section {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 3rem;
+}
+
+.tech-pill {
+  white-space: nowrap;
 }
 
 .tech-pill {
@@ -751,6 +778,13 @@ section {
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+}
+
+.contact-field input,
+.contact-field textarea,
+.btn-primary,
+.btn-secondary {
+  min-height: 44px;
 }
 
 .contact-grid {
@@ -932,6 +966,42 @@ footer {
   }
 }
 
+@media (max-width: 900px) {
+  .hero {
+    padding: 7.5rem 6% 4.5rem;
+  }
+
+  .hero-stats {
+    gap: 2rem;
+  }
+
+  .why-inner {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: clamp(1.9rem, 6vw, 2.6rem);
+  }
+
+  .section-sub {
+    font-size: 1rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .service-card {
+    padding: 2rem;
+  }
+
+  .process-grid {
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 700px) {
   nav {
     padding: 1.1rem 5%;
@@ -984,12 +1054,23 @@ footer {
     padding: 7rem 5% 4rem;
   }
 
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
   }
 
   .hero-stats {
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   section {
@@ -999,6 +1080,10 @@ footer {
   .why-visual {
     max-width: 280px;
     margin: 0 auto;
+  }
+
+  .why-point {
+    padding-left: 0.85rem;
   }
 
   .industries-header {
@@ -1012,6 +1097,25 @@ footer {
 
   .footer-links {
     justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero h1 {
+    font-size: clamp(2.4rem, 9vw, 3.2rem);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+  }
+
+  .service-card,
+  .industry-card {
+    padding: 1.6rem;
+  }
+
+  .contact-form {
+    gap: 0.7rem;
   }
 }
 

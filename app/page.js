@@ -19,112 +19,104 @@ const marqueeItems = [
 
 const services = [
   {
-    icon: "🌐",
     title: "Web Applications",
     description:
       "Custom web platforms, dashboards, portals and SaaS products built for performance, scalability and real business outcomes.",
   },
   {
-    icon: "📱",
     title: "Mobile Applications",
     description:
       "iOS and Android apps that users love, from consumer-facing products to internal business tools and enterprise systems.",
   },
   {
-    icon: "🤖",
     title: "AI & Automation",
     description:
       "Intelligent systems that automate repetitive processes, surface insights from data, and bring AI to where it actually creates value.",
   },
   {
-    icon: "🛒",
     title: "E-Commerce Platforms",
     description:
       "End-to-end online commerce solutions, storefronts, payment integration, inventory management and custom shopping experiences.",
   },
   {
-    icon: "📊",
     title: "Data & Analytics",
     description:
       "Dashboards and reporting systems that turn raw data into clear decisions. Real-time insights built for teams that move fast.",
   },
   {
-    icon: "🔌",
     title: "API & Integrations",
     description:
       "Connecting your tools, systems and data pipelines with robust APIs and third-party integrations that just work.",
+  },
+  {
+    title: "Product Design",
+    description:
+      "UX/UI design that translates complex workflows into clean, intuitive experiences users actually enjoy.",
+  },
+  {
+    title: "DevOps & Deployment",
+    description:
+      "CI/CD pipelines, cloud setup, and reliable release workflows to keep launches smooth and systems stable.",
   },
 ];
 
 const industries = [
   {
-    icon: "🏥",
     title: "Healthcare",
     description:
       "Patient management, telemedicine, clinical workflows and health data platforms.",
   },
   {
-    icon: "💳",
     title: "Finance & Fintech",
     description:
       "Payment systems, budgeting tools, investment platforms and financial automation.",
   },
   {
-    icon: "🎓",
     title: "Education",
     description:
       "LMS platforms, student portals, remote learning tools and assessment systems.",
   },
   {
-    icon: "🛍️",
     title: "Retail & Commerce",
     description:
       "Inventory systems, POS integration, customer loyalty and online storefronts.",
   },
   {
-    icon: "🚚",
     title: "Logistics",
     description:
       "Fleet tracking, route optimization, delivery management and supply chain tools.",
   },
   {
-    icon: "🏗️",
     title: "Real Estate",
     description:
       "Property listing platforms, lease management, inspection tools and agent portals.",
   },
   {
-    icon: "🍽️",
     title: "Hospitality & Food",
     description:
       "Reservation systems, food ordering platforms, kitchen management tools.",
   },
   {
-    icon: "⚡",
     title: "Energy & Utilities",
     description:
       "Smart metering, usage dashboards, maintenance scheduling and reporting systems.",
   },
   {
-    icon: "🎯",
     title: "Marketing & Media",
     description:
       "Campaign management, analytics dashboards, CRM integrations and content tools.",
   },
   {
-    icon: "⚖️",
     title: "Legal & Compliance",
     description:
       "Document management, case tracking, compliance reporting and client portals.",
   },
   {
-    icon: "🏭",
     title: "Manufacturing",
     description:
       "Production tracking, quality control, ERP integrations and factory floor dashboards.",
   },
   {
-    icon: "🌱",
     title: "Agriculture",
     description:
       "Crop monitoring, farm management, market access tools and yield analytics.",
@@ -160,25 +152,21 @@ const processSteps = [
 
 const whyPoints = [
   {
-    icon: "🔍",
     title: "We find problems others miss",
     description:
       "Our model is built around niche exploration. We dig into industries, find friction, and build software that directly solves it.",
   },
   {
-    icon: "⚡",
     title: "Speed without compromise",
     description:
       "We move fast. From contract to working product, our delivery model is optimized for speed and quality, not bureaucracy.",
   },
   {
-    icon: "🌍",
     title: "Broad expertise, focused execution",
     description:
       "We work across industries and tech stacks, meaning we bring cross-domain thinking to every problem we take on.",
   },
   {
-    icon: "🤝",
     title: "Partnership, not just delivery",
     description:
       "We are invested in your outcome, not just the deliverable. We build for the long term and stay close to the work.",
@@ -467,7 +455,6 @@ export default function Home() {
         <div className="services-grid fade-in" style={{ "--fade-delay": "80ms" }}>
           {services.map((service) => (
             <article className="service-card" key={service.title}>
-              <div className="service-icon">{service.icon}</div>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
             </article>
@@ -495,7 +482,6 @@ export default function Home() {
         <div className="industries-grid fade-in" style={{ "--fade-delay": "80ms" }}>
           {industries.map((industry) => (
             <article className="industry-card" key={industry.title}>
-              <div className="industry-icon">{industry.icon}</div>
               <h4>{industry.title}</h4>
               <p>{industry.description}</p>
             </article>
@@ -552,7 +538,6 @@ export default function Home() {
             <div className="why-points">
               {whyPoints.map((point) => (
                 <article className="why-point" key={point.title}>
-                  <div className="why-point-icon">{point.icon}</div>
                   <div>
                     <h4>{point.title}</h4>
                     <p>{point.description}</p>
@@ -677,6 +662,11 @@ export default function Home() {
             <a href="mailto:centralinnovativetech@gmail.com">
               centralinnovativetech@gmail.com
             </a>
+          </p>
+          <p className="cta-email">
+            Or call us at{" "}
+            <a href="tel:+233591802373">+233 59 180 2373</a> and{" "}
+            <a href="tel:+233557777982">+233 55 777 7982</a>.
           </p>
         </div>
       </section>

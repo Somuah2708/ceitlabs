@@ -665,7 +665,6 @@ export default function Home() {
           </p>
           <p className="cta-email">
             Or call us at{" "}
-            <a href="tel:+233591802373">+233 59 180 2373</a> and{" "}
             <a href="tel:+233557777982">+233 55 777 7982</a>.
           </p>
         </div>

@@ -1,17 +1,17 @@
-import { DM_Sans, Syne } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-syne",
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
-  variable: "--font-dm-sans",
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-inter",
 });
 
 export const metadata = {
@@ -74,7 +74,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body>{children}</body>
     </html>
   );

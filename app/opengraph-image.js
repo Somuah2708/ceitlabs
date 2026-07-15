@@ -17,9 +17,9 @@ export default function OpengraphImage() {
           display: "flex",
           position: "relative",
           overflow: "hidden",
-          background: "radial-gradient(circle at 82% 18%, rgba(0, 200, 160, 0.22), transparent 40%), radial-gradient(circle at 8% 86%, rgba(0, 120, 255, 0.2), transparent 40%), #080b0f",
-          color: "#f0f4f8",
-          fontFamily: "Inter, Arial, sans-serif",
+          background: "#0a0a09",
+          color: "#f2ede3",
+          fontFamily: "Georgia, serif",
           padding: "56px",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -28,25 +28,38 @@ export default function OpengraphImage() {
         <div
           style={{
             display: "flex",
-            border: "1px solid rgba(0,200,160,0.35)",
-            borderRadius: "999px",
-            fontSize: 24,
-            letterSpacing: "0.12em",
+            alignItems: "center",
+            gap: 14,
+            fontSize: 22,
+            letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "#00c8a0",
-            padding: "10px 22px",
+            color: "#b08d57",
+            fontFamily: "Arial, sans-serif",
             fontWeight: 600,
           }}
         >
+          <div style={{ width: 36, height: 1, background: "#b08d57" }} />
           Software Innovation Studio
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          <div style={{ fontSize: 88, lineHeight: 1, fontWeight: 800, letterSpacing: "-0.04em" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          <div style={{ fontSize: 84, lineHeight: 1, fontWeight: 500, letterSpacing: "-0.01em" }}>
             CEIT
           </div>
-          <div style={{ fontSize: 48, lineHeight: 1.08, fontWeight: 700, letterSpacing: "-0.03em", maxWidth: 900 }}>
-            We find problems. We ship solutions.
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              fontSize: 46,
+              lineHeight: 1.15,
+              fontWeight: 400,
+              letterSpacing: "-0.005em",
+              maxWidth: 900,
+              gap: 12,
+            }}
+          >
+            <span>We find problems.</span>
+            <span style={{ fontStyle: "italic", color: "#c9a468" }}>We ship solutions.</span>
           </div>
         </div>
 
@@ -56,14 +69,15 @@ export default function OpengraphImage() {
             width: "100%",
             justifyContent: "space-between",
             alignItems: "center",
-            borderTop: "1px solid rgba(255,255,255,0.14)",
+            borderTop: "1px solid rgba(242,237,227,0.16)",
             paddingTop: 22,
+            fontFamily: "Arial, sans-serif",
           }}
         >
-          <div style={{ fontSize: 24, color: "#8a96a3", letterSpacing: "0.03em" }}>
+          <div style={{ fontSize: 22, color: "#8c8477", letterSpacing: "0.03em" }}>
             Central Innovative Technologies
           </div>
-          <div style={{ fontSize: 24, color: "#00c8a0", fontWeight: 600 }}>ceit.agency</div>
+          <div style={{ fontSize: 22, color: "#b08d57", fontWeight: 600 }}>ceit.agency</div>
         </div>
       </div>
     ),

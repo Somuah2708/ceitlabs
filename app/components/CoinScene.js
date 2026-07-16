@@ -82,12 +82,13 @@ function makeFieldParticles(count, spreadX, spreadY) {
   return positions;
 }
 
-function AmbientField() {
+function AmbientField({ isCompact }) {
   const { viewport } = useThree();
   const points = useRef(null);
   const spreadX = Math.max(viewport.width * 0.48, 3);
   const spreadY = Math.max(viewport.height * 0.46, 2.4);
-  const positions = useMemo(() => makeFieldParticles(140, spreadX, spreadY), [spreadX, spreadY]);
+  const count = isCompact ? 55 : 140;
+  const positions = useMemo(() => makeFieldParticles(count, spreadX, spreadY), [count, spreadX, spreadY]);
 
   useFrame((state) => {
     if (!points.current) return;
@@ -125,9 +126,10 @@ function makeOrbitParticles(count) {
   return positions;
 }
 
-function GoldDust() {
+function GoldDust({ isCompact }) {
   const points = useRef(null);
-  const positions = useMemo(() => makeOrbitParticles(70), []);
+  const count = isCompact ? 30 : 70;
+  const positions = useMemo(() => makeOrbitParticles(count), [count]);
 
   useFrame((state) => {
     if (!points.current) return;
@@ -152,7 +154,7 @@ function GoldDust() {
   );
 }
 
-function OrbitRing({ radius, tilt, speed, opacity }) {
+function OrbitRing({ radius, tilt, speed, opacity, isCompact }) {
   const ring = useRef(null);
 
   useFrame((_state, delta) => {
@@ -163,7 +165,7 @@ function OrbitRing({ radius, tilt, speed, opacity }) {
   return (
     <group rotation={[tilt, 0, 0]}>
       <mesh ref={ring}>
-        <torusGeometry args={[radius, 0.008, 8, 128]} />
+        <torusGeometry args={[radius, 0.008, 8, isCompact ? 64 : 128]} />
         <meshStandardMaterial
           color="#b08d57"
           metalness={0.6}
@@ -261,18 +263,22 @@ function Coin() {
 }
 
 function Scene() {
-  const { viewport } = useThree();
+  const { viewport, size } = useThree();
+  const isCompact = size.width < 700;
   const halfWidth = viewport.width / 2;
   const offsetX = Math.max(0, Math.min(halfWidth - 2.7, halfWidth * 0.32));
 
   return (
     <>
-      <AmbientField />
-      <group position={[offsetX, 0, 0]}>
+      <AmbientField isCompact={isCompact} />
+      <group
+        position={[offsetX, isCompact ? -1.1 : 0, 0]}
+        scale={isCompact ? 0.58 : 1}
+      >
         <GlowHalo />
-        <OrbitRing radius={1.55} tilt={1.05} speed={0.22} opacity={0.4} />
-        <OrbitRing radius={1.9} tilt={1.3} speed={-0.14} opacity={0.22} />
-        <GoldDust />
+        <OrbitRing radius={1.55} tilt={1.05} speed={0.22} opacity={0.4} isCompact={isCompact} />
+        <OrbitRing radius={1.9} tilt={1.3} speed={-0.14} opacity={0.22} isCompact={isCompact} />
+        <GoldDust isCompact={isCompact} />
         <Coin />
       </group>
     </>
@@ -280,9 +286,11 @@ function Scene() {
 }
 
 export default function CoinScene() {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 700;
+
   return (
     <Canvas
-      dpr={[1, 1.75]}
+      dpr={[1, isMobile ? 1.3 : 1.75]}
       camera={{ position: [0, 0, 10], fov: 24 }}
       gl={{ alpha: true, antialias: true }}
     >

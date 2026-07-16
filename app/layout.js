@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://ceit.agency"),
+  metadataBase: new URL("https://ceitlabs.com"),
   title: {
     default: "CEIT - Central Innovative Technologies",
     template: "%s | CEIT",
@@ -23,13 +23,13 @@ export const metadata = {
   icons: {
     icon: [
       {
-        url: "/labslogo.png",
-        sizes: "32x32",
+        url: "/favicon-ceit-gold.png",
+        sizes: "512x512",
         type: "image/png",
       },
     ],
-    shortcut: ["/labslogo.png"],
-    apple: ["/labslogo.png"],
+    shortcut: ["/favicon-ceit-gold.png"],
+    apple: ["/favicon-ceit-gold.png"],
   },
   description:
     "Central Innovative Technologies explores problems across industries and builds software solutions that ship fast and scale.",
@@ -47,7 +47,7 @@ export const metadata = {
     title: "CEIT - We find problems. We ship solutions.",
     description:
       "A software innovation studio building web, mobile, AI, and automation products across industries.",
-    url: "https://ceit.agency",
+    url: "https://ceitlabs.com",
     siteName: "CEIT",
     images: [
       {

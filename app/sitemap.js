@@ -1,7 +1,7 @@
 export default function sitemap() {
   return [
     {
-      url: "https://ceit.agency",
+      url: "https://ceitlabs.com",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,

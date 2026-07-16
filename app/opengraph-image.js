@@ -77,7 +77,7 @@ export default function OpengraphImage() {
           <div style={{ fontSize: 22, color: "#8c8477", letterSpacing: "0.03em" }}>
             Central Innovative Technologies
           </div>
-          <div style={{ fontSize: 22, color: "#b08d57", fontWeight: 600 }}>ceit.agency</div>
+          <div style={{ fontSize: 22, color: "#b08d57", fontWeight: 600 }}>ceitlabs.com</div>
         </div>
       </div>
     ),
